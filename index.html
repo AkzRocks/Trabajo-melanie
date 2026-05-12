@@ -65,7 +65,8 @@ section { padding: 90px 60px; }
 .team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
 .team-card { background: rgba(255,255,255,0.07); border: 1px solid rgba(244,196,48,0.25); border-radius: 14px; padding: 30px 22px; text-align: center; transition: background 0.3s, border-color 0.3s, transform 0.3s; }
 .team-card:hover { background: rgba(255,255,255,0.12); border-color: var(--dorado); transform: translateY(-4px); }
-.team-avatar { width: 88px; height: 88px; border-radius: 50%; margin: 0 auto 16px; background: var(--verde-medio); border: 3px solid var(--dorado); display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 700; color: var(--dorado); }
+.team-avatar { width: 88px; height: 88px; border-radius: 50%; margin: 0 auto 16px; background: var(--verde-medio); border: 3px solid var(--dorado); display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 700; color: var(--dorado); overflow: hidden; flex-shrink: 0; }
+.team-avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .team-name { font-family: 'Playfair Display', serif; font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 6px; }
 .team-code { font-size: 10px; letter-spacing: 2px; color: var(--dorado); background: rgba(244,196,48,0.12); padding: 4px 12px; border-radius: 20px; display: inline-block; }
 .team-role { font-size: 11px; color: var(--texto-claro); margin-top: 8px; }
@@ -277,7 +278,7 @@ footer { background: #060f09; padding: 34px 60px; display: flex; align-items: ce
 <section class="hero" id="inicio">
   <div class="hero-content">
     <div class="hero-eyebrow">Exportación Perú → Guayana Francesa · Mayo 2026</div>
-    <h1>Importación de<span>Galleta Antianémica</span>NutriForce</h1>
+    <h1>Exportación de<span>Galleta Antianémica</span>NutriForce</h1>
     <p class="hero-sub">Somos estudiantes de Administración y Negocios Internacionales de la UPC. Este blog explora la exportación de nuestra galleta antianémica <strong style="color:var(--dorado)">NutriForce Amazonie</strong> desde Lima hacia Cayena, Guayana Francesa — mercado con alta prevalencia de anemia y arancel 0% bajo el TLC Perú–UE.</p>
     <div class="hero-btns">
       <a href="#producto" class="btn-primary">Ver Producto →</a>
@@ -307,12 +308,54 @@ footer { background: #060f09; padding: 34px 60px; display: flex; align-items: ce
   <div class="title-bar"></div>
   <p class="team-intro">Somos el <strong>Grupo 4</strong> de la sección <strong>11767</strong> del curso <strong>Transporte Internacional</strong>, ciclo 2026-01, bajo la dirección del Prof. <strong>Luis Gonzalo Guillén Málaga</strong>. Estudiamos Administración y Negocios Internacionales en la <strong>Universidad Peruana de Ciencias Aplicadas (UPC)</strong>.</p>
   <div class="team-grid">
-    <div class="team-card"><div class="team-avatar">CA</div><div class="team-name">Cochachi Laime, Treyci Ariana</div><div class="team-code">U202218017</div><div class="team-role">Especialista en Producto</div></div>
-    <div class="team-card"><div class="team-avatar">DT</div><div class="team-name">Dafna Teresa, Tadeo Rivera</div><div class="team-code">U202221611</div><div class="team-role">Estrategia de Mercado</div></div>
-    <div class="team-card"><div class="team-avatar">KP</div><div class="team-name">Puma Mamani, Katy Elizabeth</div><div class="team-code">U202221069</div><div class="team-role">Empaque y Embalaje</div></div>
-    <div class="team-card"><div class="team-avatar">MP</div><div class="team-name">Pumaylle Rojas, Melany</div><div class="team-code">U202220936</div><div class="team-role">Marcado y Simbología</div></div>
-    <div class="team-card"><div class="team-avatar">NA</div><div class="team-name">Antay Barrientos, Nataly</div><div class="team-code">U20211D726</div><div class="team-role">Unitarización — La Carga</div></div>
-    <div class="team-card"><div class="team-avatar">ML</div><div class="team-name">Luque Tito, Marcos Abrahan</div><div class="team-code">U20221D066</div><div class="team-role">Unitarización — El Contenedor</div></div>
+    <div class="team-card">
+      <div class="team-avatar">
+        <img src="img/Treyci.png" alt="Cochachi Laime, Treyci Ariana">
+      </div>
+      <div class="team-name">Cochachi Laime, Treyci Ariana</div>
+      <div class="team-code">U202218017</div>
+      <div class="team-role">Especialista en Producto</div>
+    </div>
+    <div class="team-card">
+      <div class="team-avatar">
+        <img src="img/dafna.jpeg" alt="Dafna Teresa, Tadeo Rivera">
+      </div>
+      <div class="team-name">Dafna Teresa, Tadeo Rivera</div>
+      <div class="team-code">U202221611</div>
+      <div class="team-role">Estrategia de Mercado</div>
+    </div>
+    <div class="team-card">
+      <div class="team-avatar">
+        <img src="img/Kay.jpeg" alt="Puma Mamani, Katy Elizabeth">
+      </div>
+      <div class="team-name">Puma Mamani, Katy Elizabeth</div>
+      <div class="team-code">U202221069</div>
+      <div class="team-role">Empaque y Embalaje</div>
+    </div>
+    <div class="team-card">
+      <div class="team-avatar">
+        <img src="img/melany.jpeg" alt="Pumaylle Rojas, Melany">
+      </div>
+      <div class="team-name">Pumaylle Rojas, Melany</div>
+      <div class="team-code">U202220936</div>
+      <div class="team-role">Marcado y Simbología</div>
+    </div>
+    <div class="team-card">
+      <div class="team-avatar">
+        <img src="img/naty.jpeg" alt="Antay Barrientos, Nataly">
+      </div>
+      <div class="team-name">Antay Barrientos, Nataly</div>
+      <div class="team-code">U20211D726</div>
+      <div class="team-role">Unitarización — La Carga</div>
+    </div>
+    <div class="team-card">
+      <div class="team-avatar">
+        <img src="img/Marcos.jpeg" alt="Luque Tito, Marcos Abrahan">
+      </div>
+      <div class="team-name">Luque Tito, Marcos Abrahan</div>
+      <div class="team-code">U20221D066</div>
+      <div class="team-role">Unitarización — El Contenedor</div>
+    </div>
   </div>
 </section>
 
