@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>NutriForce Amazonie —  Exportación de Galleta Antianémica | UPC Grupo 4</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --verde: #0A3D1F;
+  --verde-medio: #1A7A42;
+  --verde-claro: #27AE60;
+  --dorado: #F4C430;
+  --dorado-oscuro: #C8A000;
+  --crema: #F7F3E9;
+  --texto-claro: #A8D5B5;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: 'DM Sans', sans-serif; background: #fff; color: #1a1a1a; overflow-x: hidden; }
+
+nav {
+  position: fixed; top: 0; width: 100%; z-index: 100;
+  background: rgba(10,61,31,0.97); backdrop-filter: blur(8px);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 50px; height: 68px; border-bottom: 2px solid var(--dorado);
+}
+.nav-logo { display: flex; align-items: center; gap: 12px; }
+.logo-badge { background: var(--dorado); color: var(--verde); font-family: 'Playfair Display', serif; font-weight: 900; font-size: 17px; padding: 6px 14px; border-radius: 4px; letter-spacing: 1px; }
+.nav-links { display: flex; gap: 24px; list-style: none; }
+.nav-links a { color: #fff; text-decoration: none; font-size: 11px; letter-spacing: 1.2px; text-transform: uppercase; opacity: 0.8; transition: opacity 0.2s, color 0.2s; }
+.nav-links a:hover { opacity: 1; color: var(--dorado); }
+.nav-cta { background: var(--dorado); color: var(--verde) !important; padding: 7px 16px; border-radius: 4px; font-weight: 500 !important; opacity: 1 !important; }
+
+.hero { min-height: 100vh; background: linear-gradient(135deg, var(--verde) 0%, #0F5C2E 55%, #1A7A42 100%); display: flex; align-items: center; padding: 100px 60px 60px; position: relative; overflow: hidden; }
+.hero::before { content: ''; position: absolute; top: -100px; right: -80px; width: 580px; height: 580px; background: radial-gradient(circle, rgba(39,174,96,0.22) 0%, transparent 70%); border-radius: 50%; }
+.hero-content { flex: 1; z-index: 2; max-width: 580px; }
+.hero-eyebrow { display: inline-block; background: rgba(244,196,48,0.15); border: 1px solid var(--dorado); color: var(--dorado); font-size: 10px; letter-spacing: 3px; text-transform: uppercase; padding: 6px 16px; border-radius: 20px; margin-bottom: 26px; }
+.hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(38px, 5vw, 66px); font-weight: 900; line-height: 1.05; color: #fff; margin-bottom: 10px; }
+.hero h1 span { color: var(--dorado); display: block; }
+.hero-sub { font-size: 14px; color: var(--texto-claro); line-height: 1.85; margin: 22px 0 36px; max-width: 480px; }
+.hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+.btn-primary { background: var(--dorado); color: var(--verde); padding: 13px 30px; border-radius: 4px; font-weight: 500; font-size: 12px; letter-spacing: 1px; text-transform: uppercase; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; display: inline-block; }
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(244,196,48,0.4); }
+.btn-outline { border: 1.5px solid rgba(255,255,255,0.4); color: #fff; padding: 13px 30px; border-radius: 4px; font-size: 12px; letter-spacing: 1px; text-transform: uppercase; text-decoration: none; transition: border-color 0.2s, background 0.2s; display: inline-block; }
+.btn-outline:hover { border-color: #fff; background: rgba(255,255,255,0.08); }
+.hero-visual { flex: 1; display: flex; justify-content: center; align-items: center; z-index: 2; }
+.hero-card { background: rgba(255,255,255,0.07); border: 1px solid rgba(244,196,48,0.3); border-radius: 16px; padding: 38px; text-align: center; backdrop-filter: blur(10px); max-width: 310px; width: 100%; }
+.hero-emoji { font-size: 76px; line-height: 1; margin-bottom: 18px; display: block; }
+.hero-card h3 { font-family: 'Playfair Display', serif; color: var(--dorado); font-size: 21px; margin-bottom: 8px; }
+.hero-card p { color: var(--texto-claro); font-size: 13px; line-height: 1.65; }
+.hero-pills { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; margin-top: 18px; }
+.pill { background: rgba(244,196,48,0.15); border: 1px solid rgba(244,196,48,0.4); color: var(--dorado); font-size: 9px; padding: 4px 11px; border-radius: 20px; letter-spacing: 1px; }
+
+section { padding: 90px 60px; }
+.section-label { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--verde-claro); margin-bottom: 10px; font-weight: 500; }
+.section-title { font-family: 'Playfair Display', serif; font-size: clamp(26px, 3.2vw, 40px); font-weight: 700; color: var(--verde); line-height: 1.2; margin-bottom: 18px; }
+.title-bar { width: 56px; height: 3px; background: var(--dorado); margin-bottom: 38px; }
+
+.team { background: var(--verde); }
+.team .section-label { color: var(--dorado); }
+.team .section-title { color: #fff; }
+.team-intro { font-size: 14px; color: var(--texto-claro); line-height: 1.85; max-width: 680px; margin-bottom: 48px; }
+.team-intro strong { color: var(--dorado); }
+.team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+.team-card { background: rgba(255,255,255,0.07); border: 1px solid rgba(244,196,48,0.25); border-radius: 14px; padding: 30px 22px; text-align: center; transition: background 0.3s, border-color 0.3s, transform 0.3s; }
+.team-card:hover { background: rgba(255,255,255,0.12); border-color: var(--dorado); transform: translateY(-4px); }
+.team-avatar { width: 88px; height: 88px; border-radius: 50%; margin: 0 auto 16px; background: var(--verde-medio); border: 3px solid var(--dorado); display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 700; color: var(--dorado); }
+.team-name { font-family: 'Playfair Display', serif; font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 6px; }
+.team-code { font-size: 10px; letter-spacing: 2px; color: var(--dorado); background: rgba(244,196,48,0.12); padding: 4px 12px; border-radius: 20px; display: inline-block; }
+.team-role { font-size: 11px; color: var(--texto-claro); margin-top: 8px; }
+
+.about { background: var(--crema); }
+.product-table { width: 100%; border-collapse: collapse; font-size: 13px; margin-bottom: 8px; }
+.product-table th { background: var(--verde); color: var(--dorado); padding: 12px 18px; text-align: left; font-weight: 500; letter-spacing: 0.5px; }
+.product-table td { padding: 11px 18px; border-bottom: 1px solid #e0e0d0; color: #333; vertical-align: top; }
+.product-table tr:nth-child(even) td { background: rgba(10,61,31,0.04); }
+.product-table td:first-child { font-weight: 500; color: var(--verde); white-space: nowrap; }
+
+.foda { background: #fff; }
+.foda-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 48px; }
+.foda-card { border-radius: 12px; padding: 26px; }
+.foda-card.fortalezas { background: var(--verde); }
+.foda-card.oportunidades { background: var(--verde-medio); }
+.foda-card.debilidades { background: #fff; border: 2px solid var(--verde); }
+.foda-card.amenazas { background: var(--crema); border: 2px solid var(--dorado); }
+.foda-badge { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; padding: 3px 10px; border-radius: 20px; display: inline-block; margin-bottom: 12px; font-weight: 600; }
+.foda-card.fortalezas .foda-badge, .foda-card.amenazas .foda-badge { background: var(--dorado); color: var(--verde); }
+.foda-card.oportunidades .foda-badge { background: rgba(244,196,48,0.25); color: var(--dorado); }
+.foda-card.debilidades .foda-badge { background: var(--verde); color: var(--dorado); }
+.foda-card h4 { font-family: 'Playfair Display', serif; font-size: 17px; font-weight: 700; margin-bottom: 14px; }
+.foda-card.fortalezas h4, .foda-card.oportunidades h4 { color: var(--dorado); }
+.foda-card.debilidades h4, .foda-card.amenazas h4 { color: var(--verde); }
+.foda-list { list-style: none; }
+.foda-list li { font-size: 13px; line-height: 1.7; padding: 5px 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+.foda-card.debilidades .foda-list li, .foda-card.amenazas .foda-list li { border-color: rgba(10,61,31,0.08); color: #444; }
+.foda-card.fortalezas .foda-list li, .foda-card.oportunidades .foda-list li { color: var(--texto-claro); }
+.foda-list li::before { content: '▸ '; color: var(--dorado); font-size: 10px; }
+.foda-subtitle { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--verde); margin: 40px 0 18px; font-weight: 500; border-top: 2px solid var(--crema); padding-top: 32px; }
+
+.embalaje { background: var(--crema); }
+.embalaje-row { display: grid; grid-template-columns: 70px 1fr 1fr 1fr 1fr; align-items: center; gap: 18px; border-radius: 10px; padding: 20px 26px; margin-bottom: 14px; }
+.embalaje-row.nivel-1 { background: #fff; border-left: 4px solid var(--texto-claro); }
+.embalaje-row.nivel-2 { background: #fff; border-left: 4px solid var(--verde-claro); }
+.embalaje-row.nivel-3 { background: var(--verde); border-left: 4px solid var(--dorado); }
+.nivel-badge { background: var(--dorado); color: var(--verde); font-size: 9px; font-weight: 700; padding: 6px 8px; border-radius: 6px; text-align: center; letter-spacing: 1px; }
+.emb-field label { font-size: 9px; letter-spacing: 1px; text-transform: uppercase; color: #999; display: block; margin-bottom: 4px; }
+.embalaje-row.nivel-3 .emb-field label { color: var(--texto-claro); }
+.emb-field value { font-size: 13px; font-weight: 500; color: var(--verde); display: block; }
+.embalaje-row.nivel-3 .emb-field value { color: #fff; }
+
+.marcado { background: #fff; }
+.marcado-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 40px; align-items: start; }
+.bulto-visual { background: var(--verde); border-radius: 14px; padding: 28px; position: relative; display: flex; flex-direction: column; justify-content: space-between; border: 3px solid var(--dorado); min-height: 480px; }
+.bulto-section { margin-bottom: 14px; }
+.bulto-section-title { font-size: 8px; letter-spacing: 2px; color: var(--dorado); text-transform: uppercase; margin-bottom: 5px; }
+.bulto-line { font-size: 10px; color: rgba(255,255,255,0.85); line-height: 1.55; }
+.bulto-line strong { color: var(--dorado); }
+.bulto-pictograms { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 8px; }
+.picto { background: rgba(255,255,255,0.1); border: 1px solid rgba(244,196,48,0.4); border-radius: 6px; padding: 6px 8px; text-align: center; font-size: 16px; }
+.picto span { display: block; font-size: 8px; color: var(--texto-claro); margin-top: 2px; }
+.marcado-tables { display: flex; flex-direction: column; gap: 18px; }
+.marca-tipo-badge { font-size: 9px; letter-spacing: 1px; text-transform: uppercase; padding: 3px 10px; border-radius: 20px; display: inline-block; margin-bottom: 8px; font-weight: 600; }
+.estandar { background: #eaf3de; color: var(--verde-medio); }
+.informativa { background: rgba(244,196,48,0.2); color: var(--dorado-oscuro); }
+.manipuleo-badge { background: var(--verde); color: var(--dorado); }
+.marcado-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+.marcado-table th { background: var(--verde); color: var(--dorado); padding: 9px 13px; text-align: left; font-weight: 500; font-size: 11px; }
+.marcado-table td { padding: 8px 13px; border-bottom: 1px solid #e8e8e8; vertical-align: top; }
+.marcado-table td:first-child { font-weight: 500; color: var(--verde); white-space: nowrap; font-size: 11px; }
+.marcado-table tr:nth-child(even) td { background: rgba(10,61,31,0.03); }
+
+.unitarizacion { background: var(--crema); }
+.uni-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 28px; }
+.uni-card { background: #fff; border-radius: 12px; padding: 26px; border-left: 4px solid var(--verde); }
+.uni-card h4 { font-family: 'Playfair Display', serif; font-size: 15px; color: var(--verde); margin-bottom: 14px; font-weight: 700; }
+.uni-row { display: flex; justify-content: space-between; align-items: flex-start; padding: 7px 0; border-bottom: 1px solid rgba(10,61,31,0.07); font-size: 12px; gap: 10px; }
+.uni-row:last-child { border-bottom: none; }
+.uni-row span:first-child { color: #666; flex-shrink: 0; }
+.uni-row span:last-child { font-weight: 500; color: var(--verde); text-align: right; }
+.resumen-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; background: var(--verde); border-radius: 14px; padding: 30px; margin-top: 28px; }
+.res-item { text-align: center; }
+.res-num { font-family: 'Playfair Display', serif; font-size: 32px; font-weight: 900; color: var(--dorado); line-height: 1; }
+.res-label { font-size: 10px; color: var(--texto-claro); margin-top: 6px; line-height: 1.4; }
+.contenedor-visual { background: #1a1a1a; border-radius: 12px; padding: 26px; margin-top: 28px; border: 2px solid var(--dorado); }
+.cont-title { color: var(--dorado); font-family: 'Playfair Display', serif; font-size: 16px; margin-bottom: 18px; }
+.cont-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 9px; margin-bottom: 18px; }
+.cont-pallet { background: var(--verde-medio); border-radius: 6px; padding: 12px 6px; text-align: center; border: 1px solid rgba(244,196,48,0.3); }
+.cont-pallet.extra { background: #2a5c2e; }
+.cont-pallet span { font-size: 9px; color: var(--dorado); display: block; margin-top: 2px; }
+.cont-pallet big { font-size: 20px; display: block; }
+.cont-stats { display: flex; gap: 20px; flex-wrap: wrap; }
+.cont-stat .cs-val { font-size: 17px; font-weight: 700; color: var(--dorado); }
+.cont-stat .cs-lbl { font-size: 10px; color: #888; margin-top: 2px; }
+
+.manipuleo-sec { background: #fff; }
+.manip-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.manip-card { background: var(--crema); border-radius: 12px; padding: 26px 20px; border: 1.5px solid #e0e0d0; transition: transform 0.3s, border-color 0.3s; }
+.manip-card:hover { transform: translateY(-4px); border-color: var(--verde); }
+.manip-icon { font-size: 34px; margin-bottom: 12px; display: block; }
+.manip-title { font-family: 'Playfair Display', serif; font-size: 15px; color: var(--verde); margin-bottom: 10px; font-weight: 700; }
+.manip-list { list-style: none; }
+.manip-list li { font-size: 12px; line-height: 1.7; color: #555; padding: 3px 0; border-bottom: 1px solid #eaeae0; }
+.manip-list li:last-child { border-bottom: none; }
+.manip-list li::before { content: '✓ '; color: var(--verde-claro); font-weight: 700; }
+.manip-extras { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 28px; background: var(--crema); border-radius: 12px; padding: 24px; }
+.me-item { text-align: center; }
+.me-icon { font-size: 24px; margin-bottom: 7px; }
+.me-val { font-size: 14px; font-weight: 600; color: var(--verde); }
+.me-lbl { font-size: 10px; color: #888; margin-top: 3px; }
+
+.stats-banner { background: var(--verde); padding: 76px 60px; }
+.stats-inner { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; align-items: center; max-width: 820px; margin: 0 auto; }
+.stat-item { text-align: center; padding: 18px; }
+.stat-big { font-family: 'Playfair Display', serif; font-size: 56px; font-weight: 900; color: var(--dorado); line-height: 1; }
+.stat-desc { font-size: 12px; color: var(--texto-claro); margin-top: 10px; line-height: 1.5; }
+.stat-divider { width: 1px; height: 76px; background: rgba(244,196,48,0.3); }
+
+.ruta { background: var(--crema); }
+.route-flow { display: flex; align-items: center; margin-top: 20px; }
+.route-step { flex: 1; background: #fff; border-radius: 14px; padding: 32px 22px; text-align: center; border: 1.5px solid #e8e8e0; transition: transform 0.3s, box-shadow 0.3s; }
+.route-step:hover { transform: translateY(-4px); box-shadow: 0 14px 30px rgba(0,0,0,0.07); }
+.route-step.highlight { background: var(--verde); border-color: var(--verde); }
+.rs-icon { font-size: 40px; margin-bottom: 12px; display: block; }
+.rs-label { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 6px; }
+.route-step:not(.highlight) .rs-label { color: var(--verde-claro); }
+.route-step.highlight .rs-label { color: var(--dorado); }
+.rs-place { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; margin-bottom: 6px; }
+.route-step:not(.highlight) .rs-place { color: var(--verde); }
+.route-step.highlight .rs-place { color: #fff; }
+.rs-detail { font-size: 11px; line-height: 1.7; }
+.route-step:not(.highlight) .rs-detail { color: #888; }
+.route-step.highlight .rs-detail { color: var(--texto-claro); }
+.rs-tag { display: inline-block; margin-top: 12px; font-size: 9px; padding: 4px 12px; border-radius: 20px; }
+.route-step:not(.highlight) .rs-tag { background: #eaf3de; color: var(--verde-medio); }
+.route-step.highlight .rs-tag { background: var(--dorado); color: var(--verde); }
+.route-arrow { font-size: 24px; color: var(--dorado); padding: 0 14px; flex-shrink: 0; }
+
+.cta-section { background: linear-gradient(135deg, var(--verde) 0%, #0F5C2E 100%); padding: 88px 60px; text-align: center; position: relative; overflow: hidden; }
+.cta-section::before { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 650px; height: 650px; background: radial-gradient(circle, rgba(244,196,48,0.08) 0%, transparent 70%); border-radius: 50%; }
+.cta-section h2 { font-family: 'Playfair Display', serif; font-size: clamp(28px, 4vw, 46px); font-weight: 900; color: #fff; margin-bottom: 14px; position: relative; z-index: 1; }
+.:cta-section h2 span { color: var(--dorado); }
+.cta-section p { font-size: 14px; color: var(--texto-claro); position: relative; z-index: 1; max-width: 500px; margin-left: auto; margin-right: auto; line-height: 1.8; margin-bottom: 32px; }
+.cta-info { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; position: relative; z-index: 1; margin-top: 40px; padding-top: 32px; border-top: 1px solid rgba(244,196,48,0.2); }
+.ci-label { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--dorado); margin-bottom: 5px; }
+.ci-val { font-size: 12px; color: var(--texto-claro); }
+
+footer { background: #060f09; padding: 34px 60px; display: flex; align-items: center; justify-content: space-between; border-top: 2px solid var(--dorado); }
+.footer-logo { font-family: 'Playfair Display', serif; color: var(--dorado); font-size: 18px; font-weight: 900; }
+.footer-logo span { display: block; font-size: 9px; letter-spacing: 3px; color: var(--texto-claro); font-family: 'DM Sans', sans-serif; font-weight: 400; margin-top: 2px; }
+
+@keyframes fadeUp { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: translateY(0); } }
+.hero-content > * { animation: fadeUp 0.7s ease both; }
+.hero-eyebrow { animation-delay: 0.1s; } .hero h1 { animation-delay: 0.2s; } .hero-sub { animation-delay: 0.35s; } .hero-btns { animation-delay: 0.5s; }
+.hero-visual { animation: fadeUp 0.7s ease 0.4s both; }
+
+.info-box { background: var(--crema); border-left: 4px solid var(--dorado); border-radius: 0 8px 8px 0; padding: 16px 22px; font-size: 13px; color: #555; line-height: 1.7; margin-top: 14px; }
+.info-box strong { color: var(--verde); }
+.dest-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 10px; }
+.dest-card { background: #fff; border-radius: 12px; padding: 22px; border-left: 4px solid var(--verde-claro); }
+.dest-card.gold { border-color: var(--dorado); }
+.dest-card .dc-label { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--verde-claro); margin-bottom: 8px; }
+.dest-card.gold .dc-label { color: var(--dorado-oscuro); }
+.dest-card .dc-title { font-family: 'Playfair Display', serif; font-size: 14px; color: var(--verde); font-weight: 700; margin-bottom: 8px; }
+.dest-card .dc-text { font-size: 12px; color: #555; line-height: 1.65; }
+.carga-strip { display: flex; gap: 0; border-radius: 10px; overflow: hidden; margin-top: 14px; }
+.carga-strip-item { flex: 1; padding: 18px 16px; text-align: center; }
+.carga-strip-item:nth-child(1) { background: var(--verde); }
+.carga-strip-item:nth-child(2) { background: var(--verde-medio); }
+.carga-strip-item:nth-child(3) { background: var(--dorado); }
+.csi-label { font-size: 9px; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 4px; }
+.carga-strip-item:nth-child(1) .csi-label, .carga-strip-item:nth-child(2) .csi-label { color: var(--dorado); }
+.carga-strip-item:nth-child(3) .csi-label { color: var(--verde); }
+.csi-val { font-size: 14px; font-weight: 600; }
+.carga-strip-item:nth-child(1) .csi-val, .carga-strip-item:nth-child(2) .csi-val { color: #fff; }
+.carga-strip-item:nth-child(3) .csi-val { color: var(--verde); }
+
+@media (max-width: 900px) {
+  nav { padding: 0 20px; } .nav-links { display: none; }
+  section { padding: 60px 20px; }
+  .hero { padding: 90px 20px 50px; flex-direction: column; gap: 40px; }
+  .team-grid { grid-template-columns: 1fr 1fr; }
+  .foda-grid, .uni-grid, .marcado-grid { grid-template-columns: 1fr; }
+  .dest-grid, .manip-grid, .resumen-grid, .manip-extras { grid-template-columns: 1fr 1fr; }
+  .embalaje-row { grid-template-columns: 1fr 1fr; }
+  .stats-inner { grid-template-columns: 1fr; } .stat-divider { display: none; }
+  .route-flow { flex-direction: column; } .route-arrow { transform: rotate(90deg); }
+  .cont-grid { grid-template-columns: repeat(3, 1fr); }
+  .carga-strip { flex-direction: column; }
+  footer { flex-direction: column; gap: 16px; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <div class="logo-badge">NF</div>
+    <div>
+      <div style="color:#fff;font-family:'Playfair Display',serif;font-weight:700;font-size:14px;letter-spacing:1px;">NutriForce Amazonie</div>
+      <div style="color:var(--texto-claro);font-size:9px;letter-spacing:3px;text-transform:uppercase;">Exportación · UPC Grupo 4</div>
+    </div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#equipo">Equipo</a></li>
+    <li><a href="#producto">Producto</a></li>
+    <li><a href="#foda">FODA</a></li>
+    <li><a href="#embalaje">Embalaje</a></li>
+    <li><a href="#marcado">Marcado</a></li>
+    <li><a href="#unitarizacion">Unitarización</a></li>
+    <li><a href="#manipuleo" class="nav-cta">Manipuleo</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <div class="hero-content">
+    <div class="hero-eyebrow">Exportación Perú → Guayana Francesa · Mayo 2026</div>
+    <h1>Importación de<span>Galleta Antianémica</span>NutriForce</h1>
+    <p class="hero-sub">Somos estudiantes de Administración y Negocios Internacionales de la UPC. Este blog explora la exportación de nuestra galleta antianémica <strong style="color:var(--dorado)">NutriForce Amazonie</strong> desde Lima hacia Cayena, Guayana Francesa — mercado con alta prevalencia de anemia y arancel 0% bajo el TLC Perú–UE.</p>
+    <div class="hero-btns">
+      <a href="#producto" class="btn-primary">Ver Producto →</a>
+      <a href="#equipo" class="btn-outline">Nuestro Equipo</a>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="hero-card">
+      <span class="hero-emoji">🍪</span>
+      <h3>NutriForce Amazonie</h3>
+      <p>Galleta antianémica con quinua, kiwicha, cacao orgánico y hierro hemínico. Combate la anemia en aproximadamente 2 meses.</p>
+      <div class="hero-pills">
+        <span class="pill">Made in Peru</span>
+        <span class="pill">SA 1905.31</span>
+        <span class="pill">TLC UE · 0%</span>
+        <span class="pill">Carga General</span>
+        <span class="pill">Dry Van 20'</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EQUIPO -->
+<section class="team" id="equipo">
+  <div class="section-label">Presentación del Grupo</div>
+  <h2 class="section-title">Nuestro Equipo — Grupo 4</h2>
+  <div class="title-bar"></div>
+  <p class="team-intro">Somos el <strong>Grupo 4</strong> de la sección <strong>11767</strong> del curso <strong>Transporte Internacional</strong>, ciclo 2026-01, bajo la dirección del Prof. <strong>Luis Gonzalo Guillén Málaga</strong>. Estudiamos Administración y Negocios Internacionales en la <strong>Universidad Peruana de Ciencias Aplicadas (UPC)</strong>.</p>
+  <div class="team-grid">
+    <div class="team-card"><div class="team-avatar">CA</div><div class="team-name">Cochachi Laime, Treyci Ariana</div><div class="team-code">U202218017</div><div class="team-role">Especialista en Producto</div></div>
+    <div class="team-card"><div class="team-avatar">DT</div><div class="team-name">Dafna Teresa, Tadeo Rivera</div><div class="team-code">U202221611</div><div class="team-role">Estrategia de Mercado</div></div>
+    <div class="team-card"><div class="team-avatar">KP</div><div class="team-name">Puma Mamani, Katy Elizabeth</div><div class="team-code">U202221069</div><div class="team-role">Empaque y Embalaje</div></div>
+    <div class="team-card"><div class="team-avatar">MP</div><div class="team-name">Pumaylle Rojas, Melany</div><div class="team-code">U202220936</div><div class="team-role">Marcado y Simbología</div></div>
+    <div class="team-card"><div class="team-avatar">NA</div><div class="team-name">Antay Barrientos, Nataly</div><div class="team-code">U20211D726</div><div class="team-role">Unitarización — La Carga</div></div>
+    <div class="team-card"><div class="team-avatar">ML</div><div class="team-name">Luque Tito, Marcos Abrahan</div><div class="team-code">U20221D066</div><div class="team-role">Unitarización — El Contenedor</div></div>
+  </div>
+</section>
+
+<!-- PRODUCTO Y MERCADO -->
+<section class="about" id="producto">
+  <div class="section-label">1. Producto y Mercado</div>
+  <h2 class="section-title">1.1 Descripción Completa del Producto</h2>
+  <div class="title-bar"></div>
+  <table class="product-table">
+    <thead><tr><th>Característica</th><th>Detalle</th></tr></thead>
+    <tbody>
+      <tr><td>Nombre comercial</td><td><strong>NUTRIFORCE AMAZONIE</strong> — Galleta Antianémica Fortificada</td></tr>
+      <tr><td>Descripción</td><td>Galleta crocante elaborada con quinua, kiwicha, cacao orgánico y hierro hemínico. Formulada para reducir la anemia y la desnutrición. Incrementa el nivel de hemoglobina en aprox. 2 meses.</td></tr>
+      <tr><td>Partida arancelaria</td><td>1905.31.00.00 — Galletas dulces (con adición de edulcorante)</td></tr>
+      <tr><td>Características nutricionales</td><td>Alto contenido de hierro, vitaminas B12 y C, minerales. Fuente de proteína vegetal (quinua y kiwicha).</td></tr>
+      <tr><td>Presentación unitaria</td><td>Sobre individual de 45 g con 6 galletas</td></tr>
+      <tr><td>Textura / sabor</td><td>Crocante, sabor dulce con notas de cacao</td></tr>
+      <tr><td>Vida útil</td><td>6 a 12 meses a temperatura ambiente controlada</td></tr>
+      <tr><td>Almacenamiento</td><td>Lugar fresco y seco — 15 °C a 25 °C — HR &lt; 60%</td></tr>
+      <tr><td>¿Carga peligrosa?</td><td><span style="color:var(--verde-claro);font-weight:600;">NO</span> — No aplica clasificación UN ni clase IMO. Producto alimenticio no peligroso.</td></tr>
+    </tbody>
+  </table>
+
+  <!-- 1.2 TIPO DE CARGA -->
+  <div style="margin-top:56px;">
+    <div class="section-label">1.2 Tipo de Carga y Envase</div>
+    <h3 style="font-family:'Playfair Display',serif;font-size:24px;color:var(--verde);margin-bottom:10px;">Tipo de Carga y Envase a Utilizar</h3>
+    <div class="title-bar"></div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:18px;">
+      <div style="background:#fff;border-radius:12px;padding:24px 20px;border:1.5px solid #e0e0d0;text-align:center;">
+        <div style="width:34px;height:34px;border-radius:50%;background:var(--dorado);color:var(--verde);font-weight:700;font-size:15px;display:flex;align-items:center;justify-content:center;margin:0 auto 12px;">1</div>
+        <div style="font-size:32px;margin-bottom:10px;">🛍️</div>
+        <div style="font-family:'Playfair Display',serif;font-size:14px;color:var(--verde);font-weight:700;margin-bottom:8px;">Sobre BOPP Hermético</div>
+        <div style="font-size:11px;color:#666;line-height:1.65;">Envase primario individual laminado metalizado. Protege contra humedad, luz y oxidación.<br><br><strong style="color:var(--verde);">14 × 9 × 2.5 cm · 45 g</strong></div>
+      </div>
+      <div style="background:var(--verde);border-radius:12px;padding:24px 20px;text-align:center;">
+        <div style="width:34px;height:34px;border-radius:50%;background:var(--dorado);color:var(--verde);font-weight:700;font-size:15px;display:flex;align-items:center;justify-content:center;margin:0 auto 12px;">2</div>
+        <div style="font-size:32px;margin-bottom:10px;">📦</div>
+        <div style="font-family:'Playfair Display',serif;font-size:14px;color:var(--dorado);font-weight:700;margin-bottom:8px;">Caja Plegadiza Cartón</div>
+        <div style="font-size:11px;color:var(--texto-claro);line-height:1.65;">Envase secundario impreso a color con logo NUTRIFORCE AMAZONIE. Agrupa 30 sobres (180 galletas).<br><br><strong style="color:var(--dorado);">43 × 19 × 13 cm · 1.65 kg</strong></div>
+      </div>
+      <div style="background:#fff;border-radius:12px;padding:24px 20px;border:1.5px solid #e0e0d0;text-align:center;">
+        <div style="width:34px;height:34px;border-radius:50%;background:var(--dorado);color:var(--verde);font-weight:700;font-size:15px;display:flex;align-items:center;justify-content:center;margin:0 auto 12px;">3</div>
+        <div style="font-size:32px;margin-bottom:10px;">🗃️</div>
+        <div style="font-family:'Playfair Display',serif;font-size:14px;color:var(--verde);font-weight:700;margin-bottom:8px;">Caja Máster Corrugado</div>
+        <div style="font-size:11px;color:#666;line-height:1.65;">Embalaje terciario cartón corrugado doble canal B con papel liner kraft Wet Strength. Agrupa 6 cajas secundarias.<br><br><strong style="color:var(--verde);">43 × 57 × 28 cm · 10.4 kg</strong></div>
+      </div>
+    </div>
+    <div class="carga-strip">
+      <div class="carga-strip-item"><div class="csi-label">Tipo de carga</div><div class="csi-val">Carga General Unitarizada — Seca · No peligrosa</div></div>
+      <div class="carga-strip-item"><div class="csi-label">Unitarización</div><div class="csi-val">Pallets Americanos NIMF-15 · Film stretch + esquineros</div></div>
+      <div class="carga-strip-item"><div class="csi-label">Modo de transporte</div><div class="csi-val">Marítimo FCL · Dry Van 20'</div></div>
+    </div>
+  </div>
+
+  <!-- 1.3 PAÍS DESTINO -->
+  <div style="margin-top:56px;">
+    <div class="section-label">1.3 Exportación — País Destino</div>
+    <h3 style="font-family:'Playfair Display',serif;font-size:24px;color:var(--verde);margin-bottom:10px;">Guayana Francesa — Justificación del Mercado</h3>
+    <div class="title-bar"></div>
+    <div class="dest-grid">
+      <div class="dest-card">
+        <div class="dc-label">A · Salud Pública</div>
+        <div class="dc-title">Alta Prevalencia de Anemia</div>
+        <div class="dc-text">Según el estudio CARMA (2019-2020) del Centre Hospitalier de Cayenne, el <strong>81%</strong> de mujeres gestantes presentó deficiencia de micronutrientes y el <strong>66.7%</strong> padecía anemia por hierro — muy superior al promedio europeo.</div>
+      </div>
+      <div class="dest-card">
+        <div class="dc-label">B · Oportunidad Comercial</div>
+        <div class="dc-title">Dependencia de Importaciones</div>
+        <div class="dc-text">La agricultura local está poco desarrollada. El territorio importa alimentos procesados principalmente desde Francia. Según la OEC (2024), Perú exportó a Guayana <strong>USD 15.4 millones</strong> en 2024.</div>
+      </div>
+      <div class="dest-card gold">
+        <div class="dc-label">C · Ventaja Arancelaria</div>
+        <div class="dc-title">TLC Perú — Unión Europea</div>
+        <div class="dc-text">Guayana es departamento de ultramar de Francia y parte del territorio aduanero UE. Bajo el TLC Perú–UE, la subpartida <strong>1905.31.00.00</strong> tiene arancel cero o reducido para productos peruanos.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats-banner">
+  <div style="font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--dorado);text-align:center;margin-bottom:34px;">Mercado Destino — Datos Clave</div>
+  <div class="stats-inner">
+    <div class="stat-item"><div class="stat-big">66%</div><div class="stat-desc">mujeres embarazadas con anemia<br>en Guayana Francesa<br><span style="font-size:10px;opacity:0.5;">Fuente: CARMA 2019-2020</span></div></div>
+    <div class="stat-divider"></div>
+    <div class="stat-item"><div class="stat-big">$15M</div><div class="stat-desc">exportaciones peruanas<br>a Guayana en 2024<br><span style="font-size:10px;opacity:0.5;">Fuente: OEC 2024</span></div></div>
+    <div class="stat-divider"></div>
+    <div class="stat-item"><div class="stat-big">0%</div><div class="stat-desc">arancel bajo TLC<br>Perú — Unión Europea<br><span style="font-size:10px;opacity:0.5;">SA 1905.31.00.00</span></div></div>
+  </div>
+</section>
+
+<!-- FODA -->
+<section class="foda" id="foda">
+  <div class="section-label">1.4 Análisis FODA del Producto</div>
+  <h2 class="section-title">Análisis FODA — NutriForce Amazonie</h2>
+  <div class="title-bar"></div>
+  <div class="foda-grid">
+    <div class="foda-card fortalezas"><div class="foda-badge">Fortalezas</div><h4>F — Fortalezas</h4><ul class="foda-list"><li>Alto contenido de hierro y valor nutricional (quinua, kiwicha, cacao orgánico)</li><li>Producto orientado a combatir la anemia — necesidad clínica comprobada en el mercado destino</li></ul></div>
+    <div class="foda-card oportunidades"><div class="foda-badge">Oportunidades</div><h4>O — Oportunidades</h4><ul class="foda-list"><li>Crecimiento global de la demanda de alimentos saludables y funcionales</li><li>Interés internacional por productos nutricionales de origen latinoamericano</li></ul></div>
+    <div class="foda-card debilidades"><div class="foda-badge">Debilidades</div><h4>D — Debilidades</h4><ul class="foda-list"><li>Costos elevados de producción por ingredientes fortificados y de alta calidad</li><li>Vida útil limitada (6–12 meses) frente a productos industrializados convencionales</li></ul></div>
+    <div class="foda-card amenazas"><div class="foda-badge">Amenazas</div><h4>A — Amenazas</h4><ul class="foda-list"><li>Competencia de marcas europeas consolidadas con presencia en Guayana</li><li>Exigencias sanitarias y de etiquetado estrictas de la UE (reglamentos CE)</li></ul></div>
+  </div>
+  <div class="foda-subtitle">1.5 Análisis FODA del País Destino — Guayana Francesa</div>
+  <div class="foda-grid">
+    <div class="foda-card fortalezas"><div class="foda-badge">Fortalezas País</div><h4>F — Fortalezas</h4><ul class="foda-list"><li>Acceso al mercado europeo al pertenecer como departamento de ultramar de Francia</li><li>Alta dependencia de importaciones — mercado receptivo a productos diferenciados</li></ul></div>
+    <div class="foda-card oportunidades"><div class="foda-badge">Oportunidades País</div><h4>O — Oportunidades</h4><ul class="foda-list"><li>Incremento del consumo de productos nutritivos y saludables en la región</li><li>Posibilidad de expansión hacia otros mercados de Europa vía red de distribución francesa</li></ul></div>
+    <div class="foda-card debilidades"><div class="foda-badge">Debilidades País</div><h4>D — Debilidades</h4><ul class="foda-list"><li>Mercado reducido por baja población (~300,000 hab.) — volumen inicial limitado</li><li>Dependencia total del abastecimiento externo encarece la cadena logística</li></ul></div>
+    <div class="foda-card amenazas"><div class="foda-badge">Amenazas País</div><h4>A — Amenazas</h4><ul class="foda-list"><li>Altos costos logísticos y aduaneros por la ubicación geográfica remota del territorio</li><li>Competencia de productos europeos posicionados con certificaciones reconocidas</li></ul></div>
+  </div>
+</section>
+
+<!-- EMBALAJE -->
+<section class="embalaje" id="embalaje">
+  <div class="section-label">2. Preparación de la Carga</div>
+  <h2 class="section-title">2.1 Embalaje Interno</h2>
+  <div class="title-bar"></div>
+  <div class="embalaje-row nivel-1">
+    <div class="nivel-badge">NIVEL 1</div>
+    <div class="emb-field"><label>Tipo</label><value>Sobre BOPP laminado metalizado con cierre hermético</value></div>
+    <div class="emb-field"><label>Medidas</label><value>14 × 9 × 2.5 cm</value></div>
+    <div class="emb-field"><label>Peso neto</label><value>45 g</value></div>
+    <div class="emb-field"><label>Contenido</label><value>6 galletas NUTRIFORCE AMAZONIE</value></div>
+  </div>
+  <div class="embalaje-row nivel-2">
+    <div class="nivel-badge">NIVEL 2</div>
+    <div class="emb-field"><label>Tipo</label><value>Caja plegadiza cartón impresa a color (logo NFA), cierre por pestañas</value></div>
+    <div class="emb-field"><label>Medidas</label><value>43 × 19 × 13 cm</value></div>
+    <div class="emb-field"><label>Peso bruto</label><value>1.65 kg</value></div>
+    <div class="emb-field"><label>Contenido</label><value>30 sobres = 180 galletas · (3 col. × 2 fil. × 5 cap.)</value></div>
+  </div>
+  <div class="info-box" style="margin-top:8px;"><strong>Nota técnica:</strong> La caja secundaria tiene holgura de 1 cm en largo, 1 cm en ancho y 0.5 cm en alto respecto a los sobres. Esta tolerancia evita presión excesiva y facilita el manipuleo.</div>
+
+  <h3 style="font-family:'Playfair Display',serif;font-size:22px;color:var(--verde);margin:44px 0 10px;">2.2 Embalaje Externo — Caja Máster (Nivel 3)</h3>
+  <div class="title-bar"></div>
+  <div class="embalaje-row nivel-3">
+    <div class="nivel-badge">NIVEL 3</div>
+    <div class="emb-field"><label>Tipo</label><value>Caja cartón corrugado doble canal B</value></div>
+    <div class="emb-field"><label>Medidas</label><value>43 × 57 × 28 cm</value></div>
+    <div class="emb-field"><label>Peso bruto</label><value>10.4 kg (neto: 9.9 kg)</value></div>
+    <div class="emb-field"><label>Contenido</label><value>6 cajas niv.2 = 180 sobres = 1,080 galletas · Distribución: 1×3×2</value></div>
+  </div>
+  <div class="info-box"><strong>¿Por qué canal B con papel Wet Strength?</strong> La ruta Callao–Cayena atraviesa zonas tropicales con humedad relativa superior al 80%. El canal B con liner kraft Wet Strength mantiene la resistencia estructural del cartón bajo exposición prolongada a humedad, siendo más económico y efectivo que el laminado PE para transporte marítimo de larga distancia.</div>
+</section>
+
+<!-- MARCADO -->
+<section class="marcado" id="marcado">
+  <div class="section-label">2.3 Marcado del Bulto</div>
+  <h2 class="section-title">Marcado de la Caja Máster de Exportación</h2>
+  <div class="title-bar"></div>
+  <div class="marcado-grid">
+    <div>
+      <div style="font-size:10px;color:#888;margin-bottom:10px;letter-spacing:1px;text-transform:uppercase;">Imagen del bulto — caja máster (todas las marcas)</div>
+      <div class="bulto-visual">
+        <div>
+          <div class="bulto-section">
+            <div class="bulto-section-title">▶ Marcas Estándar — Cara Frontal Principal</div>
+            <div class="bulto-line"><strong>Exportador:</strong> NUTRIFORCE S.A.C. — Av. Los Alimentos 1254, San Isidro, Lima, Perú</div>
+          </div>
+          <div class="bulto-section">
+            <div class="bulto-line"><strong>Importador:</strong> DISTRIBUIDOR NUTRICIÓN AMAZONIE SAS — 12 Rue Lallouette, 97300 Cayenne, Guyane Française</div>
+          </div>
+          <div class="bulto-section">
+            <div class="bulto-line"><strong>País de origen:</strong> MADE IN PERU 🇵🇪</div>
+            <div class="bulto-line"><strong>N° de bulto:</strong> BULTO Nº 001 / 240</div>
+          </div>
+          <div class="bulto-section">
+            <div class="bulto-section-title">▶ Marcas Informativas — Cara Lateral</div>
+            <div class="bulto-line"><strong>Producto:</strong> NUTRIFORCE AMAZONIE — Galleta Antianémica Fortificada</div>
+            <div class="bulto-line"><strong>Lote:</strong> NFA-2026-001 | <strong>MFG:</strong> MAYO 2026 | <strong>EXP:</strong> MAYO 2027</div>
+            <div class="bulto-line"><strong>GW:</strong> 10.4 kg | <strong>NW:</strong> 9.9 kg | Contenido: 6 cajas × 30 sobres × 6 galletas</div>
+            <div class="bulto-line" style="font-size:9px;opacity:0.7;">SA: 1905.31.00.00 | BISCUITS / IRON-ENRICHED / NON-HAZARDOUS</div>
+          </div>
+        </div>
+        <div>
+          <div class="bulto-section">
+            <div class="bulto-section-title">▶ Marcas de Manipuleo ISO 780 — Cara Superior + Frente</div>
+            <div class="bulto-pictograms">
+              <div class="picto">↑<span>Este lado arriba ISO 7000-0623</span></div>
+              <div class="picto">🥛<span>Frágil ISO 7000-0621</span></div>
+              <div class="picto">☂️<span>Proteger humedad ISO 7000-0622</span></div>
+              <div class="picto" style="font-size:13px;font-weight:700;">n=8<span>Máx. apilamiento</span></div>
+              <div class="picto">🌡️<span>15–25 °C</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="marcado-tables">
+      <div><div class="marca-tipo-badge estandar">Marcas Estándar</div>
+        <table class="marcado-table"><thead><tr><th>Elemento</th><th>Detalle específico</th></tr></thead><tbody>
+          <tr><td>Exportador</td><td>NUTRIFORCE S.A.C. — Av. Los Alimentos 1254, San Isidro, Lima, Perú</td></tr>
+          <tr><td>Importador</td><td>DISTRIBUIDOR NUTRICIÓN AMAZONIE SAS — 12 Rue Lallouette, 97300 Cayenne, Guyane Française</td></tr>
+          <tr><td>País de origen</td><td>MADE IN PERU</td></tr>
+          <tr><td>N° de bulto / total</td><td>BULTO Nº 001 / 240 (numeración correlativa)</td></tr>
+        </tbody></table>
+      </div>
+      <div><div class="marca-tipo-badge informativa">Marcas Informativas</div>
+        <table class="marcado-table"><thead><tr><th>Elemento</th><th>Detalle específico</th></tr></thead><tbody>
+          <tr><td>Nombre del producto</td><td>NUTRIFORCE AMAZONIE — Galleta Antianémica Fortificada</td></tr>
+          <tr><td>N° de lote</td><td>LOT: NFA-2026-001</td></tr>
+          <tr><td>Producción / Vencimiento</td><td>MFG: MAYO 2026 | EXP: MAYO 2027</td></tr>
+          <tr><td>Peso bruto / neto</td><td>GW: 10.4 kg | NW: 9.9 kg</td></tr>
+          <tr><td>Contenido declarado</td><td>6 cajas × 30 sobres × 6 galletas = 1,080 galletas</td></tr>
+          <tr><td>Descripción B/L</td><td>BISCUITS / FOOD SUPPLEMENTS / IRON-ENRICHED / NON-HAZARDOUS | SA: 1905.31.00.00</td></tr>
+        </tbody></table>
+      </div>
+      <div><div class="marca-tipo-badge manipuleo-badge">Marcas de Manipuleo — ISO 780</div>
+        <table class="marcado-table"><thead><tr><th>Pictograma</th><th>Norma / Ubicación</th></tr></thead><tbody>
+          <tr><td>↑ Este lado arriba</td><td>ISO 7000-0623 — 4 caras verticales del bulto</td></tr>
+          <tr><td>🥛 Frágil</td><td>ISO 7000-0621 — cara frontal izquierda. No arrojar, no golpear.</td></tr>
+          <tr><td>☂️ Proteger de la humedad</td><td>ISO 7000-0622 — cara frontal izquierda. Carga sensible a humedad tropical.</td></tr>
+          <tr><td>n=8 Apilamiento máximo</td><td>Cara superior — máximo 8 cajas máster en altura</td></tr>
+          <tr><td>🌡️ Temperatura</td><td>15 °C – 25 °C — cara lateral derecha</td></tr>
+        </tbody></table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- UNITARIZACIÓN -->
+<section class="unitarizacion" id="unitarizacion">
+  <div class="section-label">3. Unitarización</div>
+  <h2 class="section-title">3.1 Medidas y Pesos de los Bultos</h2>
+  <div class="title-bar"></div>
+  <table class="product-table" style="margin-bottom:44px;">
+    <thead><tr><th>Nivel de Embalaje</th><th>Largo</th><th>Ancho</th><th>Alto</th><th>Peso Bruto</th><th>Contenido</th></tr></thead>
+    <tbody>
+      <tr><td>Sobre individual (Nivel 1)</td><td>14 cm</td><td>9 cm</td><td>2.5 cm</td><td>45 g</td><td>6 galletas</td></tr>
+      <tr><td>Caja secundaria (Nivel 2)</td><td>43 cm</td><td>19 cm</td><td>13 cm</td><td>1.65 kg</td><td>30 sobres</td></tr>
+      <tr><td>Caja máster exportación (Nivel 3)</td><td>43 cm</td><td>57 cm</td><td>28 cm</td><td>10.4 kg</td><td>6 cajas niv.2</td></tr>
+    </tbody>
+  </table>
+
+  <h3 style="font-family:'Playfair Display',serif;font-size:22px;color:var(--verde);margin-bottom:18px;">3.2 Pallets — Número, Medidas y Peso Bruto</h3>
+  <div class="uni-grid">
+    <div class="uni-card">
+      <h4>Características del Pallet</h4>
+      <div class="uni-row"><span>Tipo</span><span>Americano NIMF-15 fumigado (obligatorio UE)</span></div>
+      <div class="uni-row"><span>Medidas</span><span>1.20 m × 1.00 m × 0.15 m alto</span></div>
+      <div class="uni-row"><span>Peso vacío</span><span>20 kg</span></div>
+      <div class="uni-row"><span>Aseguramiento</span><span>Film stretch + esquineros de cartón en 4 aristas</span></div>
+      <div class="uni-row"><span>Altura máxima de carga</span><span>2.24 m (8 niveles × 28 cm)</span></div>
+    </div>
+    <div class="uni-card">
+      <h4>Distribución — Estiba en Ladrillo</h4>
+      <div class="uni-row"><span>Niveles impares (orientación normal)</span><span>120÷43=2 × 100÷57=1 → 2 cajas/nivel</span></div>
+      <div class="uni-row"><span>Niveles pares (girado 90°)</span><span>120÷57=2 × 100÷43=2 → 4 cajas/nivel</span></div>
+      <div class="uni-row"><span>Total niveles</span><span>8 (4 impares × 2 + 4 pares × 4 = 24 cajas)</span></div>
+      <div class="uni-row"><span>Cajas máster por pallet</span><span><strong>24 cajas máster</strong></span></div>
+      <div class="uni-row"><span>Peso bruto por pallet</span><span><strong>24 × 10.4 + 20 = 269.6 kg</strong></span></div>
+    </div>
+  </div>
+
+  <h3 style="font-family:'Playfair Display',serif;font-size:22px;color:var(--verde);margin:40px 0 18px;">3.3 Contenedor — Número, Tamaño y Tipo</h3>
+  <div class="contenedor-visual">
+    <div class="cont-title">🚢 Contenedor 20' Dry Van × 1 unidad (FCL)</div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:20px;">
+      <div style="background:rgba(255,255,255,0.06);border-radius:8px;padding:14px;text-align:center;"><div style="color:var(--dorado);font-size:9px;letter-spacing:1px;margin-bottom:5px;">LARGO INTERNO</div><div style="color:#fff;font-size:17px;font-weight:600;">589 cm</div></div>
+      <div style="background:rgba(255,255,255,0.06);border-radius:8px;padding:14px;text-align:center;"><div style="color:var(--dorado);font-size:9px;letter-spacing:1px;margin-bottom:5px;">ANCHO INTERNO</div><div style="color:#fff;font-size:17px;font-weight:600;">234 cm</div></div>
+      <div style="background:rgba(255,255,255,0.06);border-radius:8px;padding:14px;text-align:center;"><div style="color:var(--dorado);font-size:9px;letter-spacing:1px;margin-bottom:5px;">ALTO INTERNO</div><div style="color:#fff;font-size:17px;font-weight:600;">239 cm</div></div>
+      <div style="background:rgba(255,255,255,0.06);border-radius:8px;padding:14px;text-align:center;"><div style="color:var(--dorado);font-size:9px;letter-spacing:1px;margin-bottom:5px;">VOLUMEN ÚTIL</div><div style="color:#fff;font-size:17px;font-weight:600;">33.2 m³</div></div>
+    </div>
+    <div style="font-size:9px;letter-spacing:1px;color:var(--dorado);text-transform:uppercase;margin-bottom:9px;">Distribución de 10 pallets (vista superior del contenedor)</div>
+    <div class="cont-grid">
+      <div class="cont-pallet"><big>📦</big><span>Pallet 1</span></div>
+      <div class="cont-pallet"><big>📦</big><span>Pallet 2</span></div>
+      <div class="cont-pallet"><big>📦</big><span>Pallet 3</span></div>
+      <div class="cont-pallet"><big>📦</big><span>Pallet 4</span></div>
+      <div class="cont-pallet extra"><big>📦</big><span>Pallet 9*</span></div>
+      <div class="cont-pallet"><big>📦</big><span>Pallet 5</span></div>
+      <div class="cont-pallet"><big>📦</big><span>Pallet 6</span></div>
+      <div class="cont-pallet"><big>📦</big><span>Pallet 7</span></div>
+      <div class="cont-pallet"><big>📦</big><span>Pallet 8</span></div>
+      <div class="cont-pallet extra"><big>📦</big><span>Pallet 10*</span></div>
+    </div>
+    <div style="font-size:10px;color:#666;margin-bottom:16px;">*Pallets 9–10 en espacio sobrante de 109 cm (girados 90°). Bloque principal: 4 × 2 = 8 pallets. Distribución longitudinal: 589 ÷ 120 = 4; transversal: 234 ÷ 100 = 2.</div>
+    <div class="cont-stats">
+      <div class="cont-stat"><div class="cs-val">10</div><div class="cs-lbl">Pallets americanos NIMF-15</div></div>
+      <div class="cont-stat"><div class="cs-val">26.88 m³</div><div class="cs-lbl">Volumen ocupado</div></div>
+      <div class="cont-stat"><div class="cs-val">81%</div><div class="cs-lbl">Aprovechamiento (26.88÷33.2)</div></div>
+      <div class="cont-stat"><div class="cs-val">2,696 kg</div><div class="cs-lbl">Peso bruto total embarque</div></div>
+    </div>
+  </div>
+
+  <h3 style="font-family:'Playfair Display',serif;font-size:22px;color:var(--verde);margin:40px 0 18px;">3.4 Resumen Total del Embarque</h3>
+  <div class="resumen-grid">
+    <div class="res-item"><div class="res-num">240</div><div class="res-label">Cajas máster totales<br>en el contenedor</div></div>
+    <div class="res-item"><div class="res-num">1,440</div><div class="res-label">Cajas secundarias<br>(30 sobres c/u)</div></div>
+    <div class="res-item"><div class="res-num">43,200</div><div class="res-label">Sobres individuales<br>de 45 g</div></div>
+    <div class="res-item"><div class="res-num">259,200</div><div class="res-label">Galletas NutriForce<br>Amazonie totales</div></div>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:14px;">
+    <div style="background:var(--crema);border-radius:10px;padding:17px;text-align:center;"><div style="font-family:'Playfair Display',serif;font-size:20px;color:var(--verde);font-weight:700;">2,696 kg</div><div style="font-size:10px;color:#888;margin-top:4px;">Peso bruto total del embarque</div></div>
+    <div style="background:var(--crema);border-radius:10px;padding:17px;text-align:center;"><div style="font-family:'Playfair Display',serif;font-size:20px;color:var(--verde);font-weight:700;">26.88 m³</div><div style="font-size:10px;color:#888;margin-top:4px;">Volumen total ocupado</div></div>
+    <div style="background:var(--crema);border-radius:10px;padding:17px;text-align:center;"><div style="font-family:'Playfair Display',serif;font-size:20px;color:var(--verde);font-weight:700;">81%</div><div style="font-size:10px;color:#888;margin-top:4px;">Aprovechamiento del contenedor</div></div>
+    <div style="background:var(--crema);border-radius:10px;padding:17px;text-align:center;"><div style="font-family:'Playfair Display',serif;font-size:20px;color:var(--verde);font-weight:700;">Callao → Cayena</div><div style="font-size:10px;color:#888;margin-top:4px;">Puerto del Callao → Dégrad des Cannes</div></div>
+  </div>
+</section>
+
+<!-- MANIPULEO -->
+<section class="manipuleo-sec" id="manipuleo">
+  <div class="section-label">4. Manipuleo</div>
+  <h2 class="section-title">Recomendaciones de Manipuleo</h2>
+  <div class="title-bar"></div>
+  <div class="manip-grid">
+    <div class="manip-card">
+      <span class="manip-icon">🌡️</span>
+      <div class="manip-title">4.1 Temperatura y Humedad</div>
+      <ul class="manip-list">
+        <li>Mantener la carga entre 15 °C y 25 °C — temperaturas superiores ablandan las galletas y deterioran el embalaje BOPP</li>
+        <li>No superar el 60% HR — la humedad excesiva favorece el enmohecimiento</li>
+        <li>Usar desecantes (silica gel) dentro de las cajas máster o sobre cada nivel del pallet en los puertos de Callao y Cayena</li>
+      </ul>
+    </div>
+    <div class="manip-card">
+      <span class="manip-icon">📐</span>
+      <div class="manip-title">4.2 Posición y Estiba</div>
+      <ul class="manip-list">
+        <li>Colocar cajas siempre en posición vertical respetando la marca "Este lado arriba" (↑) en cada nivel</li>
+        <li>No apilar más de 8 cajas máster en altura — evita aplastamiento de las inferiores y rotura de galletas</li>
+        <li>Respetar el símbolo ISO 7000-0623 en todas las caras externas de la caja máster</li>
+      </ul>
+    </div>
+    <div class="manip-card">
+      <span class="manip-icon">🏗️</span>
+      <div class="manip-title">4.3 Carga y Descarga</div>
+      <ul class="manip-list">
+        <li>No arrojar ni golpear las cajas — las galletas se quiebran ante impactos bruscos afectando la presentación y valor comercial</li>
+        <li>Usar montacargas o transpaletas con horquillas reguladas que no excedan el ancho del pallet (1.00 m)</li>
+        <li>En operaciones manuales, máximo 2 cajas máster por persona</li>
+        <li>Nunca inclinar ni voltear el pallet cargado</li>
+      </ul>
+    </div>
+    <div class="manip-card">
+      <span class="manip-icon">🌿</span>
+      <div class="manip-title">4.4 Protección Fitosanitaria</div>
+      <ul class="manip-list">
+        <li>Pallets con certificado NIMF-15 — obligatorio para exportar madera de embalaje a la Unión Europea</li>
+        <li>No colocar cajas directamente sobre el suelo — usar siempre pallets certificados</li>
+        <li>Almacenes en Lima y Cayena libres de roedores e insectos — inspección previa al cargue obligatoria</li>
+        <li>No almacenar junto a químicos, pinturas u olores fuertes</li>
+      </ul>
+    </div>
+    <div class="manip-card">
+      <span class="manip-icon">📄</span>
+      <div class="manip-title">4.5 Documentación</div>
+      <ul class="manip-list">
+        <li>Bill of Lading: "BISCUITS / FOOD SUPPLEMENTS / IRON-ENRICHED / NON-HAZARDOUS"</li>
+        <li>Certificado Fitosanitario SENASA acreditando cumplimiento NIMF-15 de pallets</li>
+        <li>Certificado de Análisis (CoA) del lote indicando niveles de hierro y ausencia de contaminantes — requisito frecuente en aduana UE</li>
+      </ul>
+    </div>
+    <div class="manip-card">
+      <span class="manip-icon">🚢</span>
+      <div class="manip-title">Ruta del Embarque</div>
+      <ul class="manip-list">
+        <li>Origen: Puerto del Callao — Lima, Perú</li>
+        <li>Destino: Puerto de Dégrad des Cannes — Cayena, Guayana Francesa</li>
+        <li>Incoterm: CIF Cayena (costo, seguro y flete incluidos)</li>
+        <li>Tipo de embarque: FCL en contenedor 20' Dry Van</li>
+      </ul>
+    </div>
+  </div>
+  <div class="manip-extras">
+    <div class="me-item"><div class="me-icon">🌡️</div><div class="me-val">15–25 °C</div><div class="me-lbl">Temperatura de almacén</div></div>
+    <div class="me-item"><div class="me-icon">💧</div><div class="me-val">Máx. 60% HR</div><div class="me-lbl">Humedad relativa</div></div>
+    <div class="me-item"><div class="me-icon">📦</div><div class="me-val">Máx. 8 cajas</div><div class="me-lbl">Altura de apilado</div></div>
+    <div class="me-item"><div class="me-icon">🌿</div><div class="me-val">NIMF-15</div><div class="me-lbl">Pallet certificado UE</div></div>
+  </div>
+</section>
+
+<!-- RUTA -->
+<section class="ruta">
+  <div class="section-label">Logística Internacional</div>
+  <h2 class="section-title">Ruta de Exportación Marítima</h2>
+  <div class="title-bar"></div>
+  <div class="route-flow">
+    <div class="route-step">
+      <span class="rs-icon">🏭</span>
+      <div class="rs-label">Origen</div>
+      <div class="rs-place">Lima, Perú</div>
+      <div class="rs-detail">Puerto del Callao<br>Contenedor 20' Dry Van (FCL)<br>2,696 kg · 26.88 m³ · 10 pallets</div>
+      <span class="rs-tag">240 cajas máster · 259,200 galletas</span>
+    </div>
+    <div class="route-arrow">→</div>
+    <div class="route-step highlight">
+      <span class="rs-icon">🚢</span>
+      <div class="rs-label">Transporte Marítimo</div>
+      <div class="rs-place">Atlántico Sur</div>
+      <div class="rs-detail">Ruta marítima directa<br>Incoterm: CIF Cayena<br>Carga General · No Peligrosa · Seca</div>
+      <span class="rs-tag">FCL · 20' Dry Van · SA 1905.31</span>
+    </div>
+    <div class="route-arrow">→</div>
+    <div class="route-step">
+      <span class="rs-icon">🏥</span>
+      <div class="rs-label">Destino</div>
+      <div class="rs-place">Cayena, Guayana</div>
+      <div class="rs-detail">Puerto Dégrad des Cannes<br>Aduana UE · Arancel 0%<br>Departamento de ultramar Francia</div>
+      <span class="rs-tag">TLC Perú–UE · SENASA · CoA</span>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <h2>Exportando Salud desde Perú<br><span>a Guayana Francesa</span></h2>
+  <p>NutriForce Amazonie — Trabajo Final de Transporte Internacional<br>Grupo 4 · UPC · Ciclo 2026-01 · Prof. Luis Gonzalo Guillén Málaga</p>
+  <a href="#equipo" class="btn-primary" style="position:relative;z-index:1;">Conocer al Equipo →</a>
+  <div class="cta-info">
+    <div><div class="ci-label">Universidad</div><div class="ci-val">UPC — Lima, Perú</div></div>
+    <div><div class="ci-label">Sección / Ciclo</div><div class="ci-val">11767 · 2026-01</div></div>
+    <div><div class="ci-label">Profesor</div><div class="ci-val">Luis Gonzalo Guillén Málaga</div></div>
+    <div><div class="ci-label">Producto</div><div class="ci-val">NutriForce Amazonie · SA 1905.31.00.00</div></div>
+    <div><div class="ci-label">Destino</div><div class="ci-val">Cayena, Guayana Francesa</div></div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">NutriForce <span>Amazonie · UPC Grupo 4 · 2026-01</span></div>
+  <div style="text-align:center;font-size:11px;color:#555;">Transporte Internacional · Prof. Luis Gonzalo Guillén Málaga<br><span style="color:var(--dorado);">Lima, Perú — Mayo 2026</span></div>
+  <div style="text-align:right;font-size:11px;color:#555;">Puerto del Callao → Cayena, Guayana Francesa<br><span style="color:var(--dorado);">Made in Peru 🇵🇪</span></div>
+</footer>
+
+</body>
+</html>
